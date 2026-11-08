@@ -1,0 +1,1 @@
+The three lock scan logs (2026-11-07 LOCKSCAN1452, LOCKSCAN21502, LOCKSCAN31553) were condensed: their findings are in ../README.md, ../lock.ps1 and ../tasks/. The two logs above are kept with only the repeated XML and script bodies replaced by pointers. The raw originals stay in the git history of the hq repo (the first one contains the old lock password; change it).
