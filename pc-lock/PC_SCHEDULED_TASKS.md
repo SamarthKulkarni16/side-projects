@@ -29,8 +29,7 @@ MOVE the shutdown to 17:05 and enable it (current setting):
 (echo ==== %date% %time% ==== & schtasks /Change /TN PCShutdownPM /ST 17:05 /ENABLE & schtasks /Query /TN PCShutdownPM /FO LIST /V | findstr /i "TaskName Task.To.Run State Next Schedule") > "%USERPROFILE%\Desktop\shutdown_1705.txt" 2>&1 & notepad "%USERPROFILE%\Desktop\shutdown_1705.txt"
 
 STATUS of all three (read-only):
-(echo ==== %date% %time% ==== & for %t in (PCLock PCLock2 PCShutdownPM) do schtasks /Query /TN %t /FO LIST /V | findstr /i "TaskName State Next") > "%USERPROFILE%\Desktop\pc_tasks.txt" 2>&1 & notepad "%USERPROFILE%\Desktop\pc_tasks.txt"
-(In a .bat file use %%t instead of %t.)
+(echo ==== %date% %time% ==== & schtasks /Query /TN PCLock /FO LIST /V | findstr /i "TaskName State Next" & schtasks /Query /TN PCLock2 /FO LIST /V | findstr /i "TaskName State Next" & schtasks /Query /TN PCShutdownPM /FO LIST /V | findstr /i "TaskName State Next") > "%USERPROFILE%\Desktop\pc_tasks.txt" 2>&1 & notepad "%USERPROFILE%\Desktop\pc_tasks.txt"
 
 ## Other things found on the PC (2026-11-22)
 Startup folder: chrome_maximize.vbs (keeps Chrome maximized, skips the autoposter Chrome), Adobe Gamma Loader. Run keys: Web Companion, f.lux, PicPick, SoundMan. AutoHotkey is not installed.
